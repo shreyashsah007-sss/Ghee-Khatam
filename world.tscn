@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://ccc7ci7o3vv5w"]
+
+[ext_resource type="Script" uid="uid://b0cu3axyhbfo1" path="res://world.gd" id="1_036b0"]
+[ext_resource type="Texture2D" uid="uid://2n2x0rsse6k1" path="res://asserts/Tilemap/goku_image-removebg-preview.png" id="1_tlwt5"]
+[ext_resource type="Texture2D" uid="uid://pnkluop0wuna" path="res://asserts/Tilemap/dragon_ball.png" id="2_aqk2v"]
+[ext_resource type="Texture2D" uid="uid://b6rfclxy8a5e5" path="res://asserts/Tilemap/41530.jpg" id="2_dwbse"]
+[ext_resource type="Texture2D" uid="uid://djyej2v07cpl7" path="res://asserts/Tilemap/vecteezy_pixel-art-zombie-hand-emerging-from-the-ground_72637072-removebg-preview.png" id="3_036b0"]
+[ext_resource type="AudioStream" uid="uid://c2iaj4oanh5qd" path="res://asserts/Tilemap/fahhh_KcgAXfs.mp3" id="4_aqk2v"]
+[ext_resource type="AudioStream" uid="uid://dimug7uq0blno" path="res://asserts/Tilemap/gunshot-meme.mp3" id="7_pkg7o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbgyh"]
+size = Vector2(94, 179)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sbgyh"]
+radius = 19.104973
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctfbw"]
+size = Vector2(65, 71)
+
+[node name="Main" type="Node2D" unique_id=1030147468]
+script = ExtResource("1_036b0")
+
+[node name="Background" type="TextureRect" parent="." unique_id=191125877]
+offset_left = 1152.0
+offset_top = 648.0
+offset_right = 2304.0
+offset_bottom = 1296.0
+texture = ExtResource("2_dwbse")
+expand_mode = 1
+
+[node name="Background2" type="TextureRect" parent="." unique_id=18902756]
+offset_left = 1152.0
+offset_top = 648.0
+offset_right = 2304.0
+offset_bottom = 1296.0
+texture = ExtResource("2_dwbse")
+expand_mode = 1
+
+[node name="Player" type="Area2D" parent="." unique_id=208770226]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=26114035]
+modulate = Color(0.88235295, 0.9019608, 0.8627451, 1)
+position = Vector2(-82.00001, -89.00001)
+scale = Vector2(0.2524272, 0.29372936)
+texture = ExtResource("1_tlwt5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=531812562]
+position = Vector2(-78, -91)
+shape = SubResource("RectangleShape2D_sbgyh")
+
+[node name="BouncyTemplate" type="Area2D" parent="." unique_id=1180365063]
+
+[node name="Sprite2D" type="Sprite2D" parent="BouncyTemplate" unique_id=315416427]
+modulate = Color(0.88235295, 0.9019608, 0.8627451, 1)
+position = Vector2(111, -246)
+scale = Vector2(0.031910766, 0.033685055)
+texture = ExtResource("2_aqk2v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BouncyTemplate" unique_id=1584487081]
+position = Vector2(110, -246)
+shape = SubResource("CircleShape2D_sbgyh")
+
+[node name="DeadlyTemplate" type="Area2D" parent="." unique_id=1991512792]
+position = Vector2(-2, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="DeadlyTemplate" unique_id=992408297]
+position = Vector2(106.00001, -39.499996)
+scale = Vector2(0.18300001, 0.19399999)
+texture = ExtResource("3_036b0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadlyTemplate" unique_id=1506541037]
+position = Vector2(109.00001, -36.5)
+scale = Vector2(1.0000001, 1)
+shape = SubResource("RectangleShape2D_ctfbw")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=865703303]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "Score: 0"
+
+[node name="GameOverLabel" type="Label" parent="." unique_id=1206809484]
+offset_left = 945.0
+offset_top = -344.0
+offset_right = 1311.0
+offset_bottom = -28.0
+theme_override_font_sizes/font_size = 42
+text = "Ghee Khatam"
+
+[node name="FahhSound" type="AudioStreamPlayer2D" parent="." unique_id=543413431]
+stream = ExtResource("4_aqk2v")
+
+[node name="BounceSound" type="AudioStreamPlayer2D" parent="." unique_id=599777133]
+stream = ExtResource("7_pkg7o")
